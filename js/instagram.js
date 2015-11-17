@@ -1,30 +1,34 @@
 (function($) {
     $(document).ready(function() {
         $.slidebars();
-        getFlickrData("election2016");
+        getInstagramData("election2016");
     });
 }) (jQuery);
 
-$("#search-flickr").keyup(function(event) {
+$("#search-insta").keyup(function(event) {
     if (event.which == 13) {
-        var keyword = $("#search-flickr").val();
-        getFlickrData(keyword);
+        var keyword = $("#search-insta").val();
+        getInstagramData(keyword);
      }
 });
 
-function getFlickrData(keyword) {
+function getInstagramData(keyword) {
     var html = "";
-    var apiurl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=" + keyword + "&format=json&jsoncallback=?";
+    var apiurl = "https://api.instagram.com/v1/tags/" + keyword + "/media/recent?access_token=2265851202.bdc5273.85579435d77f4419b60ff21d57027bd8&callback=?";
     $(document).ready(function(){
         $.getJSON(apiurl,function(json){
             console.log(json);
             html += '<div class="container"><div class="row"><section id="pinBoot">';
-            $.each(json.items, function(i, data){
+            $.each(json.data,function(i,data){
                 html += '<article class="white-panel">';
-                html += '<div class="flickr-description">' + data.description + '</div>';
+                html += '<div class="user"><img class="profile-photo-insta" src="'+ data.caption.from.profile_picture +'"><span class="username">' + data.caption.from.username + '<span></div>';
+                html += '<hr class="style-six">'
+                html += '<div class="caption">' + data.caption.text + '</div>';
+                html += '<a href="' + data.link + '"><img class="photos" src ="' + data.images.low_resolution.url + '"></a>';
                 html += '</article>';
-            })
+            });
             html += '</section></div></div>';
+
             $("#results").text("");
             $("#results").append(html);
 

@@ -112,7 +112,7 @@ li {
 #cssmenu li:hover,
 #cssmenu li.active {
 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, grey), color-stop(1, blue));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, grey), color-stop(1, #004A80));
   background-image: -webkit-linear-gradient(top, white, #f2edea, white);
   background-image: -moz-linear-gradient(top, white, #f2edea, white);
   background-image: -ms-linear-gradient(top, white, #f2edea, white);
@@ -121,11 +121,11 @@ li {
   /*background-color: #FFF;*/
 }
 #cssmenu li:hover > a {
-    color: blue;
+    color: #004A80;
     /*font-weight: bold;*/
 }
 #cssmenu li.active > a {
-  color: blue;
+  color: #004A80;
   font-weight: bold;
 }
 #cssmenu a {

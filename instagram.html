@@ -1,37 +1,40 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Using Fixed Positions with Slidebars Example</title>
+		<title>#Election2016</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<!-- Slidebars CSS -->
 		<link rel="stylesheet" href="css/slidebars.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!-- Example Styles -->
 		<link rel="stylesheet" href="css/slidebarStyles.css">
 		<link rel="stylesheet" href="css/menuStyles.css">
+		<link rel="stylesheet" href="css/styles.css">
 	</head>
-
 	<body>
-		<div id="fixed-top" class="sb-slide">
-			<!-- <i class="fa fa-flag fa-2x"></i> -->
-			<span style="color: white; font-size: 20px; position: absolute; margin: 15px;">
-				<span style="color: white;">#</span>
-				<span style="color: red;">election</span>
-				<span style="color: blue; font-weight: bold;">2016</span>
-
+		<div id="fixed-top">
+			<span class="logo-top">
+				<span class="logo-part-1">#</span>
+				<span class="logo-part-2">election</span>
+				<span class="logo-part-3">2016</span>
 			</span>
-			<!--fa-times-->
 			<span class="sb-toggle-right">
-				<span style="color: white; font-size: 20px; position: absolute; top: 15px; right: 50px;"></span>
 				<i class="fa fa-bars fa-2x" id="menu-icon"></i>
 			</span>
 		</div>
-
 		<div id="sb-site" class="top-padding">
+			<div class="page-title">Instagram</div>
+			<div class="page-intro">
+				Explore the social media discussion regarding the presiential election on Instagram. Use the search bar to
+				filter the feed and search for specific candadites.
+			</div>
+			<div class="box">
+			  <div class="container-1">
+			      <span class="icon"><i class="fa fa-search"></i></span>
+			      <input type="search" class="search" id="search-insta" placeholder="Search..." />
+			  </div>
+			</div>
 			<div id="results"></div>
 		</div>
-
 		<div class="sb-slidebar sb-right">
 			<div id='cssmenu'>
 			<ul>
@@ -43,65 +46,9 @@
 			</ul>
 			</div>
 		</div>
-
-		<!-- jQuery -->
+		<div class="footer"></div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<!-- Slidebars -->
 		<script src="js/slidebars.js"></script>
-		<script>
-			(function($) {
-				$(document).ready(function() {
-					$.slidebars();
-				});
-			}) (jQuery);
-
-		</script>
-		<script type="text/javascript">
-			$(function() {
-				var instaUrl = "https://api.instagram.com/v1/tags/cats/media/recent?access_token=2265851202.bdc5273.85579435d77f4419b60ff21d57027bd8&callback=?"
-				var access_token = location.hash.split('=')[1];
-				var flickrUrl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=baseball&format=json&jsoncallback=?";
-				var html = "";
-				getData(instaUrl);
-				var insta = true;
-
-				function getData(dataUrl) {
-					$.ajax({
-						type: "GET",
-						dataType: "json",
-						cache: false,
-						url: dataUrl,
-						success: parseData
-					});
-				}
-
-				function parseData(json){
-					console.log(json);
-
-					if (insta){
-						$.each(json.data,function(i,data){
-							html += '<p>Filter:"'+ data.filter+'"</p>';
-							html += '<img src ="' + data.images.low_resolution.url + '">'
-						});
-
-						console.log(html);
-						$("#results").append(html);
-
-						insta = false;
-						getData(flickrUrl)
-					}
-					else {
-						html = '<h1>'+ json.title + '</h1>';
-
-						$.each(json.items, function(i, data){
-							html += '<p>From: ' + data.author_id + '</p>';
-							html += '<a href="' + data.link + '"><img src=" ' + data.media.m + '"></a>';
-						})
-						//after loop code
-						$("#results").append(html);
-					}
-				}
-			 });
-		</script>
+		<script src="js/instagram.js"></script>
 	</body>
 </html>

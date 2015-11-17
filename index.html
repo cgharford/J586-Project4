@@ -1,33 +1,26 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Election 2016</title>
+		<title>#Election2016</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<!-- Slidebars CSS -->
 		<link rel="stylesheet" href="css/slidebars.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!-- Example Styles -->
 		<link rel="stylesheet" href="css/slidebarStyles.css">
 		<link rel="stylesheet" href="css/menuStyles.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
-		<div id="fixed-top" class="sb-slide">
-			<!-- <i class="fa fa-flag fa-2x"></i> -->
-			<span style="color: white; font-size: 20px; position: absolute; margin: 15px;">
-				<span style="color: white;">#</span>
-				<span style="color: red;">election</span>
-				<span style="color: blue; font-weight: bold;">2016</span>
-
+		<div id="fixed-top">
+			<span class="logo-top">
+				<span class="logo-part-1">#</span>
+				<span class="logo-part-2">election</span>
+				<span class="logo-part-3">2016</span>
 			</span>
-			<!--fa-times-->
 			<span class="sb-toggle-right">
-				<span style="color: white; font-size: 20px; position: absolute; top: 15px; right: 50px;"></span>
 				<i class="fa fa-bars fa-2x" id="menu-icon"></i>
 			</span>
 		</div>
-
 		<div id="sb-site" class="top-padding">
 			<div style="text-align: center; line-height: 150%; color: #686466; padding: 1em; font-size: 30px;">Who will win?</div>
 			<div style="text-align: center; position: relative;">
@@ -38,37 +31,30 @@
 			<div style="text-align: center; line-height: 200%; padding: 2em .5em 2em .5em;">With the 2016 American presidential election
 				quickly approaching, tensions are high and campaigning is in full swing. This year's running includes several unique
 				nominees whose candidacy has sparked debate or agreement among American citizens across the country. Here you can gather
-				information from how 
+				information from how
 			</div>
 		</div>
-
 		<div class="sb-slidebar sb-right">
 			<div id='cssmenu'>
 			<ul>
 			   <li class='active'><a href='index.html'><span>Home</span></a></li>
-			   <li><a href='flickr.html'><span>Twitter</span></a></li>
+			   <li><a href='twitter.html'><span>Twitter</span></a></li>
 			   <li><a href='instagram.html'><span>Instagram</span></a></li>
-			   <li><a href='#'><span>Flickr</span></a></li>
-			   <li class='last'><a href='#'><span>Debate Locations</span></a></li>
+			   <li><a href='flickr.html'><span>Flickr</span></a></li>
+			   <li class='last'><a href='map.html'><span>Debate Locations</span></a></li>
 			</ul>
 			</div>
 		</div>
 		<div class="footer"></div>
 
-		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<!-- Slidebars -->
 		<script src="js/slidebars.js"></script>
 		<script>
 			(function($) {
 				$(document).ready(function() {
 					$.slidebars();
-					$("#intro1").fadeIn("slow");
-					$("#intro2").fadeIn();
-					$("#intro3").fadeIn();
 				});
 			}) (jQuery);
-
 		</script>
 	</body>
 </html>
