@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Using Fixed Positions with Slidebars Example</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Slidebars CSS -->
+		<link rel="stylesheet" href="css/slidebars.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!-- Example Styles -->
+		<link rel="stylesheet" href="css/slidebarStyles.css">
+		<link rel="stylesheet" href="css/menuStyles.css">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+
+	<body>
+		<!-- <div id="fixed-top" class="sb-slide"> -->
+		<div id="fixed-top">
+			<a href='index.html'>
+				<span style="color: white; font-size: 20px; position: absolute; margin: 15px;">
+					<span style="color: white;">#</span>
+					<span style="color: red;">election</span>
+					<span style="color: blue; font-weight: bold;">2016</span>
+				</span>
+			</a>
+			<span class="sb-toggle-right">
+				<span style="color: white; font-size: 20px; position: absolute; top: 15px; right: 50px;"></span>
+				<i class="fa fa-bars fa-2x" id="menu-icon"></i>
+			</span>
+		</div>
+
+		<div id="sb-site" class="top-padding">
+			<div style="line-height: 150%; font-size: 30px; text-align: center; margin-top: 20px; font-weight: bold; color: #686466">Flickr</div>
+			<div style="line-height: 150%; font-size: 15px; text-align: center; padding: 1em;">
+				Explore the social media discussion regarding the presiential election on Flickr. Use the search bar to
+				filter the feed and search for specific candadites.
+			</div>
+			<div class="box">
+			  <div class="container-1">
+			      <span class="icon"><i class="fa fa-search"></i></span>
+			      <input type="search" id="search" placeholder="Search..." />
+			  </div>
+			</div>
+			<div id="results"></div>
+		</div>
+
+		<div class="sb-slidebar sb-right">
+			<div id='cssmenu'>
+			<ul>
+			   <li><a href='#'><span>Extra</span></a></li>
+			   <li><a href='index.html'><span>Home</span></a></li>
+			   <li class='active'><a href='flickr.html'><span>Twitter</span></a></li>
+			   <li><a href='instagram.html'><span>Instagram</span></a></li>
+			   <li><a href='#'><span>Flickr</span></a></li>
+			   <li class='last'><a href='#'><span>Debate Locations</span></a></li>
+			</ul>
+			</div>
+		</div>
+		<div class="footer">
+		</div>
+		<!-- jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<!-- Slidebars -->
+		<script src="js/slidebars.js"></script>
+		<script src="js/flickr.js"></script>
+	</body>
+</html>

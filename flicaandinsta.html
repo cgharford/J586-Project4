@@ -1,0 +1,56 @@
+
+<html>
+    <head>
+    <script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var instaUrl = "https://api.instagram.com/v1/tags/cats/media/recent?access_token=2265851202.bdc5273.85579435d77f4419b60ff21d57027bd8&callback=?"
+        var access_token = location.hash.split('=')[1];
+        var flickrUrl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=baseball&format=json&jsoncallback=?";
+        var html = "";
+        getData(instaUrl);
+        var insta = true;
+
+        function getData(dataUrl) {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                cache: false,
+                url: dataUrl,
+                success: parseData
+            });
+        }
+
+        function parseData(json){
+            console.log(json);
+
+            if (insta){
+                $.each(json.data,function(i,data){
+                    html += '<p>Filter:"'+ data.filter+'"</p>';
+                    html += '<img src ="' + data.images.low_resolution.url + '">'
+                });
+
+                console.log(html);
+                $("#results").append(html);
+
+                insta = false;
+                getData(flickrUrl)
+            }
+            else {
+                html = '<h1>'+ json.title + '</h1>';
+
+                $.each(json.items, function(i, data){
+                    html += '<p>From: ' + data.author_id + '</p>';
+                    html += '<a href="' + data.link + '"><img src=" ' + data.media.m + '"></a>';
+                })
+                //after loop code
+                $("#results").append(html);
+            }
+        }
+     });
+    </script>
+    </head>
+    <body>
+        <div id="results"></div>
+    </body>
+</html>
