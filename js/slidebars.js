@@ -358,6 +358,8 @@
 		$site.on( 'touchend click', function ( event ) {
 			if ( settings.siteClose && ( leftActive || rightActive ) ) { // If settings permit closing by site and left or right Slidebar is open.
 				eventHandler( event, $( this ) ); // Handle the event.
+				$("#menu-icon").removeClass("fa-times");
+				$("#menu-icon").addClass("fa-bars");
 				close(); // Close it.
 			}
 		} );

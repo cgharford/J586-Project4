@@ -1,11 +1,37 @@
 body {
- background-color:#eee;
+    background-color:#eee;
+    font-family: sans-serif;
+}
+
+#intro-title {
+    text-align: center;
+    line-height: 150%;
+    color: #686466;
+    padding: 1em 0em 0em 0em;
+    font-size: 30px;
+}
+
+#election-photo {
+    text-align: center;
+    position: relative;
+}
+
+#election-photo img {
+    width: 70%;
+    max-width: 70%;
+    height: auto;
+}
+
+#intro-text {
+    text-align: center;
+    line-height: 200%;
+    padding: 2em;
 }
 
 #pinBoot {
-  position: relative;
-  max-width: 100%;
-  width: 100%;
+    position: relative;
+    max-width: 100%;
+    width: 100%;
 }
 
 .page-title {
@@ -25,31 +51,31 @@ body {
 }
 
 img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 .white-panel {
-  position: absolute;
-  background: white;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  padding: 10px;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px;
 }
 
 .white-panel h1 {
-  font-size: 1em;
+    font-size: 1em;
 }
 .white-panel h1 a {
-  color: #A92733;
+    color: #A92733;
 }
 .white-panel:hover {
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-  margin-top: -5px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    margin-top: -5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 hr.style-six {
@@ -80,56 +106,56 @@ hr.style-six {
 }
 
 .box{
-  margin: auto;
-  width: 300px;
-  height: 50px;
-  padding: 1em 1em 1.5em 1em;
+    margin: auto;
+    width: 300px;
+    height: 50px;
+    padding: 1em 1em 1.5em 1em;
 }
 .container-1{
-  width: 300px;
-  vertical-align: middle;
-  white-space: nowrap;
-  position: relative;
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
 }
 
 .container-1 input.search{
-  width: 300px;
-  height: 50px;
-  background: #f2edea;
-  border: none;
-  font-size: 10pt;
-  float: left;
-  color: #63717f;
-  padding-left: 45px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #c0bebf;
+    width: 300px;
+    height: 50px;
+    background: #f2edea;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #c0bebf;
 }
 
 .container-1 input.search::-webkit-input-placeholder {
-   color: #65737e;
+    color: #65737e;
 }
 
 .container-1 input.search:-moz-placeholder { /* Firefox 18- */
-   color: #65737e;
+    color: #65737e;
 }
 
 .container-1 input.search::-moz-placeholder {  /* Firefox 19+ */
-   color: #65737e;
+    color: #65737e;
 }
 
 .container-1 input.search:-ms-input-placeholder {
-   color: #65737e;
+    color: #65737e;
 }
 
 .container-1 .icon{
-  position: absolute;
-  top: 50%;
-  margin-left: 17px;
-  margin-top: 17px;
-  z-index: 1;
-  color: #4f5b66;
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #4f5b66;
 }
 
 input:focus {
@@ -192,4 +218,57 @@ input:focus {
 
 .flickr-description img {
     border-radius: .25em;
+}
+
+#map-size {
+    width: 100%;
+    height: 400px;
+}
+
+/* Twitter styles */
+.twitter-profile-picture {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.twitter-user {
+    top: 15%;
+    padding: 0px 0px 0px 60px;
+    color: #004A80;
+}
+
+.tweet-container {
+    position: relative;
+    border-top: 1px solid #CCCCCC;
+    padding: 1em 1em 1.5em 1em;
+}
+
+.twitter-username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #004A80;
+}
+
+.twitter-screen-name {
+    font-size: 12px;
+    color: #CCCCCC;
+    font-weight: normal;
+}
+
+.tweet-content {
+    color: black;
+    font-size: 15px;
+}
+
+/* Styles for responsive design */
+@media screen and (max-width: 860px) {
+    #election-photo img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+    #intro-text {
+        padding: 2em .5em 2em .5em;
+    }
 }
