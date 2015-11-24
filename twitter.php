@@ -47,6 +47,10 @@
     $requestMethod = 'GET';
     $twitter = new TwitterAPIExchange($settings);
 
+    //echo $twitter->setGetfield($getfield)
+             //->buildOauth($url, $requestMethod)
+            // ->performRequest();
+
     $tweetData = json_decode($twitter->setGetfield($getfield)
                 ->buildOauth($url, $requestMethod)
                 ->performRequest(),$assoc = TRUE);
@@ -57,9 +61,11 @@
         echo "<div class='twitter-user'>";
         echo "<div class='twitter-username'>" . $items['user']['name'] . "<span class='twitter-screen-name'> @" . $items['user']['screen_name'] .  "</span></div>";
         echo "<div class='tweet-content tweet'>" . $items['text'] . "</div>";
-        $tweetPhotoUrl = $items['entities']['media']['url'];
-        if ($tweetPhotoUrl != null) {
-            echo "<img class='tweet-photo' src='" . $tweetPhotoUrl . "'>" . $tweetPhotoUrl;
+        foreach($items['entities']['media'] as $media) {
+            $tweetPhotoUrl = $media['media_url'];
+            if ($tweetPhotoUrl != null) {
+                echo "<img class='tweet-photo' src='" . $tweetPhotoUrl . "'>";
+            }
         }
         echo "</div>";
         echo "</div>";
