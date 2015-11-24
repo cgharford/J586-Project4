@@ -226,6 +226,11 @@ input:focus {
 }
 
 /* Twitter styles */
+
+#twitter-body {
+    background-color: white;
+}
+
 .twitter-profile-picture {
     width: 50px;
     height: 50px;
@@ -242,6 +247,7 @@ input:focus {
     position: relative;
     border-top: 1px solid #CCCCCC;
     padding: 1em 1em 1.5em 1em;
+    background-color: #eee;
 }
 
 .twitter-username {

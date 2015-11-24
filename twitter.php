@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/tweetLinkIt.js"></script>
@@ -9,7 +10,16 @@
         }
     </script>
 </head>
-<body>
+<body id="twitter-body">
+    <div class="box">
+      <div class="container-1">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <form name="form" action="" method="get">
+              <input type="search" class="search" id="search-twitter" name="search-twitter" placeholder="Search..." />
+          </form>
+      </div>
+    </div>
+    <br>
     <?php
     ini_set('display_errors', 1);
     require_once('TwitterAPIExchange.php');
@@ -25,8 +35,14 @@
     /** Perform a GET request and echo the response **/
     /** Note: Set the GET field BEFORE calling buildOauth(); **/
     $url = 'https://api.twitter.com/1.1/search/tweets.json';
-    //$domDocumentObject->getElementById('search-twitter');
     $keyword = '#election2016';
+
+    $searchValue = $_GET['search-twitter'];
+
+    if ($searchValue != null) {
+        $keyword = $searchValue;
+    }
+
     $getfield = '?q=' . $keyword;
     $requestMethod = 'GET';
     $twitter = new TwitterAPIExchange($settings);
@@ -42,8 +58,9 @@
         echo "<div class='twitter-username'>" . $items['user']['name'] . "<span class='twitter-screen-name'> @" . $items['user']['screen_name'] .  "</span></div>";
         echo "<div class='tweet-content tweet'>" . $items['text'] . "</div>";
         $tweetPhotoUrl = $items['entities']['media']['url'];
-        echo $tweetPhotoUrl;
-        echo "<img class='tweet-photo' src='" . $items['entities']['media']['url'] . "'>" . $items['entities']['media']['url'];
+        if ($tweetPhotoUrl != null) {
+            echo "<img class='tweet-photo' src='" . $tweetPhotoUrl . "'>" . $tweetPhotoUrl;
+        }
         echo "</div>";
         echo "</div>";
     }
