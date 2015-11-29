@@ -46,12 +46,14 @@ function getNewsData(keyword) {
 				var multimediaURL;
 
 				if (theNode.type_of_material != "Blog") {
-                    nytFeed += '<div class="articleDiv">';
-                    nytFeed += '<a href="' + theNode.web_url + '" target="_blank"> <div class="articleHeadline">' + theNode.headline.main + '</div></a>';
-                    nytFeed += '<div class="articleByline">' + theNode.byline.original + '</div>';
-                    nytFeed += '<div class="articleDate">' + month + ' ' + dayOfMonth + ', ' + year + '</div>';
+                    nytFeed += '<div class="article-div">';
+                    nytFeed += '<a href="' + theNode.web_url + '" target="_blank"> <div class="article-headline">' + theNode.headline.main + '</div></a>';
+                    nytFeed += '<div class="article-padding">';
+                    nytFeed += '<span class="article-byline">' + theNode.byline.original + '</span>';
+                    nytFeed += '<span class="article-date">' + month + ' ' + dayOfMonth + ', ' + year + '</span>';
+                    nytFeed += '</div>';
                     if (theNode.lead_paragraph != null) {
-                        nytFeed += '<div class="articleIntro">' + theNode.lead_paragraph + '</div>'
+                        nytFeed += '<div class="article-intro">' + theNode.lead_paragraph + '</div>'
     				}
                     nytFeed += '</div>';
 				}
