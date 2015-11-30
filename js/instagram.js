@@ -14,13 +14,15 @@ $("#search-insta").keyup(function(event) {
 
 function getInstagramData(keyword) {
     var html = "";
+    var htmlMobile = "";
     var apiurl = "https://api.instagram.com/v1/tags/" + keyword + "/media/recent?access_token=2265851202.bdc5273.85579435d77f4419b60ff21d57027bd8&callback=?";
     $(document).ready(function(){
         $.getJSON(apiurl,function(json){
             console.log(json);
+
             html += '<div class="container"><div class="row"><section id="pinBoot">';
             $.each(json.data,function(i,data){
-                html += '<article class="white-panel">';
+                html += '<article class="white-panel slide">';
                 html += '<div class="user"><img class="profile-photo-insta" src="'+ data.caption.from.profile_picture +'"><span class="username">' + data.caption.from.username + '<span></div>';
                 html += '<hr class="style-six">'
                 html += '<div class="caption">' + data.caption.text + '</div>';
@@ -29,8 +31,29 @@ function getInstagramData(keyword) {
             });
             html += '</section></div></div>';
 
+
+
+            htmlMobile += '<div class="swiper-container"><div class="row swiper-wrapper">';
+            $.each(json.data,function(i,data){
+                htmlMobile += '<div class="swiper-slide">';
+                htmlMobile += '<div class="user"><img class="profile-photo-insta" src="'+ data.caption.from.profile_picture +'"><span class="username">' + data.caption.from.username + '<span></div>';
+                htmlMobile += '<hr class="style-six">'
+                htmlMobile += '<div class="caption">' + data.caption.text + '</div>';
+                htmlMobile += '<a href="' + data.link + '"><img class="photos" src ="' + data.images.low_resolution.url + '"></a>';
+                htmlMobile += '</div>';
+            });
+            htmlMobile += '</div><div class="swiper-pagination"></div></div>';
+
             $("#results").text("");
             $("#results").append(html);
+
+            $("#resultsMobile").text("");
+            $("#resultsMobile").append(htmlMobile);
+
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true
+            });
 
             $('#pinBoot').pinterest_grid({
                 no_columns: 4,

@@ -197,11 +197,12 @@ input:focus {
 .user {
     margin-right: 250px;
     position: relative;
+    padding-top: 40px;
 }
 
 .username {
     position: absolute;
-    top: 30%;
+    top: 60%;
     padding: 0em 0em 0em 1em;
     font-weight: bold;
     color: #004A80;
@@ -282,6 +283,14 @@ input:focus {
     max-height: 30%;
 }
 
+#resultsMobile {
+    display: none;
+}
+
+#results {
+    display: block;
+}
+
 /* Styles for responsive design */
 @media screen and (max-width: 860px) {
     #election-photo img {
@@ -294,5 +303,11 @@ input:focus {
     }
     #php-size {
         height: 300px;
+    }
+    #results {
+        display: none;
+    }
+    #resultsMobile {
+        display: block;
     }
 }

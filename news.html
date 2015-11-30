@@ -32,19 +32,26 @@
 		</div>
 		<div class="sb-slidebar sb-right">
 			<div id='cssmenu'>
-			<ul>
-			   <li><a href='#'><span></span></a></li>
- 			   <li><a href='index.html'><span>Home</span></a></li>
- 			   <li><a href='twitter.html'><span>Twitter</span></a></li>
- 			   <li><a href='instagram.html'><span>Instagram</span></a></li>
- 			   <li><a href='flickr.html'><span>Flickr</span></a></li>
- 			   <li class='active'><a href='news.html'><span>News</span></a></li>
- 			   <li class='last'><a href='map.html'><span>Locations</span></a></li>
-			</ul>
+				<ul>
+				   <li><a href='#'><span></span></a></li>
+	 			   <li><a href='index.html'><span>Home</span></a></li>
+	 			   <li><a href='twitter.html'><span>Twitter</span></a></li>
+	 			   <li><a href='instagram.html'><span>Instagram</span></a></li>
+	 			   <li><a href='flickr.html'><span>Flickr</span></a></li>
+	 			   <li class='active'><a href='news.html'><span>News</span></a></li>
+	 			   <li class='last'><a href='map.html'><span>Locations</span></a></li>
+				</ul>
 			</div>
 		</div>
 		<div class="footer"></div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/slidebars.js"></script>
+		<script>
+			(function($) {
+				$(document).ready(function() {
+					$.slidebars();
+				});
+			}) (jQuery);
+		</script>
 	</body>
 </html>
