@@ -31,8 +31,6 @@ function getInstagramData(keyword) {
             });
             html += '</section></div></div>';
 
-
-
             htmlMobile += '<div class="swiper-container"><div class="row swiper-wrapper">';
             $.each(json.data,function(i,data){
                 htmlMobile += '<div class="swiper-slide">';
@@ -52,7 +50,8 @@ function getInstagramData(keyword) {
 
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
-                paginationClickable: true
+                paginationClickable: true,
+                loop: true
             });
 
             $('#pinBoot').pinterest_grid({

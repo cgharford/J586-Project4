@@ -14,8 +14,8 @@ $("#search-news").keyup(function(event) {
 function getNewsData(keyword) {
 	var apiurl = "http://api.nytimes.com/svc/search/v2/articlesearch.json?callback=svc_search_v2_articlesearch&q=" + keyword + "&begin_date=20120101&sort=newest&hl=true&api-key=9ed7ffe1f07567ee716a8827aaee57a5:8:73609312"
 	var nyt = "";
-    var nytFeed = "";
-	var nytFeedMobile = "";
+    var html = "";
+	var htmlMobile = "";
 
         $.ajax({
         	type: "GET",
@@ -28,7 +28,10 @@ function getNewsData(keyword) {
         function parseData(json){
             console.log(json);
             var i = 0;
-            nytFeed = "";
+            html = "";
+            htmlMobile = "";
+
+            htmlMobile += '<div class="swiper-container"><div class="row swiper-wrapper">';
 
             $.each(json.response.docs,function(i, theNode){
 				var date = new Date(theNode.pub_date);
@@ -46,21 +49,47 @@ function getNewsData(keyword) {
 				var multimediaURL;
 
 				if (theNode.type_of_material != "Blog") {
-                    nytFeed += '<div class="article-div">';
-                    nytFeed += '<a href="' + theNode.web_url + '" target="_blank"> <div class="article-headline">' + theNode.headline.main + '</div></a>';
-                    nytFeed += '<div class="article-padding">';
-                    nytFeed += '<span class="article-byline">' + theNode.byline.original + '</span>';
-                    nytFeed += '<span class="article-date">' + month + ' ' + dayOfMonth + ', ' + year + '</span>';
-                    nytFeed += '</div>';
+                    html += '<div class="article-div">';
+                    html += '<a href="' + theNode.web_url + '" target="_blank"> <div class="article-headline">' + theNode.headline.main + '</div></a>';
+                    html += '<div class="article-padding">';
+                    html += '<span class="article-byline">' + theNode.byline.original + '</span>';
+                    html += '<span class="article-date">' + month + ' ' + dayOfMonth + ', ' + year + '</span>';
+                    html += '</div>';
                     if (theNode.lead_paragraph != null) {
-                        nytFeed += '<div class="article-intro">' + theNode.lead_paragraph + '</div>'
+                        html += '<div class="article-intro">' + theNode.lead_paragraph + '</div>'
     				}
-                    nytFeed += '</div>';
+                    html += '</div>';
+
+                    htmlMobile += '<div class="article-div swiper-slide">';
+                    htmlMobile += '<a href="' + theNode.web_url + '" target="_blank"> <div class="article-headline">' + theNode.headline.main + '</div></a>';
+                    htmlMobile += '<div class="article-padding">';
+                    htmlMobile += '<span class="article-byline">' + theNode.byline.original + '</span>';
+                    htmlMobile += '<span class="article-date">' + month + ' ' + dayOfMonth + ', ' + year + '</span>';
+                    htmlMobile += '</div>';
+                    if (theNode.lead_paragraph != null) {
+                        htmlMobile += '<div class="article-intro">' + theNode.lead_paragraph + '</div>'
+    				}
+                    htmlMobile += '</div>';
+
+
+
+
 				}
             });
+
+            htmlMobile += '</div><div class="swiper-pagination"></div></div>';
+
+
             $("#results").text("");
-            $("#results").append(nytFeed);
-            // $('#articleFeed').append(nytFeed);
-			// $('#articleFeedMobile').append(nytFeedMobile);
+            $("#results").append(html);
+
+            $("#resultsMobile").text("");
+            $("#resultsMobile").append(htmlMobile);
+
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                loop: true
+            });
 	  }
 };
