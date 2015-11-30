@@ -1,0 +1,48 @@
+body {
+    font-family: 'Verdana';
+    background-color: white;
+}
+
+a {
+    color: #004A80;
+    text-decoration: none;
+    font-family: 'Times New Roman';
+}
+
+.article-div {
+    border-bottom: 1px solid #eeeeee;
+    padding: 40px 0;
+    line-height: 200%;
+}
+
+.article-headline {
+    color: #004A80;
+    text-decoration: none;
+    font-family: 'Times New Roman';
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.article-byline {
+    color: #808080;
+}
+
+.article-date {
+    float: right;
+    font-size: 13px;
+}
+
+.article-intro {
+    line-height: 130%;
+}
+
+.article-padding {
+    padding: 10px 0px;
+}
+
+.articleImg {
+    float: right;
+    width:100%;
+    height: auto;
+    max-width: 150px;
+}

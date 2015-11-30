@@ -26,7 +26,6 @@ function getNewsData(keyword) {
         });
 
         function parseData(json){
-            console.log(json);
             var i = 0;
             html = "";
             htmlMobile = "";

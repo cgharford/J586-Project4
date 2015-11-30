@@ -18,8 +18,7 @@ function getInstagramData(keyword) {
     var apiurl = "https://api.instagram.com/v1/tags/" + keyword + "/media/recent?access_token=2265851202.bdc5273.85579435d77f4419b60ff21d57027bd8&callback=?";
     $(document).ready(function(){
         $.getJSON(apiurl,function(json){
-            console.log(json);
-
+            
             html += '<div class="container"><div class="row"><section id="pinBoot">';
             $.each(json.data,function(i,data){
                 html += '<article class="white-panel slide">';

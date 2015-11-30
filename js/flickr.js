@@ -14,10 +14,10 @@ $("#search-flickr").keyup(function(event) {
 
 function getFlickrData(keyword) {
     var html = "";
+    var htmlMobile = "";
     var apiurl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=" + keyword + "&format=json&jsoncallback=?";
     $(document).ready(function(){
         $.getJSON(apiurl,function(json){
-            console.log(json);
             html += '<div class="container"><div class="row"><section id="pinBoot">';
             $.each(json.items, function(i, data){
                 html += '<article class="white-panel">';
@@ -25,8 +25,26 @@ function getFlickrData(keyword) {
                 html += '</article>';
             })
             html += '</section></div></div>';
+
+            htmlMobile += '<div class="swiper-container"><div class="row swiper-wrapper">';
+            $.each(json.items, function(i, data){
+                htmlMobile += '<div class="swiper-slide">';
+                htmlMobile += '<div class="flickr-description">' + data.description + '</div>';
+                htmlMobile += '</div>';
+            })
+            htmlMobile += '</div><div class="swiper-pagination"></div>';
+
             $("#results").text("");
             $("#results").append(html);
+
+            $("#resultsMobile").text("");
+            $("#resultsMobile").append(htmlMobile);
+
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                loop: true
+            });
 
             $('#pinBoot').pinterest_grid({
                 no_columns: 4,
