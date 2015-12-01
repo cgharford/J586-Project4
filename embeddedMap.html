@@ -1,16 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/dropdownStyle.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="js/map.js"></script>
     <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
+      html, body {
+          height: 100%; margin: 0; padding: 0;
+          background-color: white;
+      }
+      #map {
+          height: 100%;
+      }
     </style>
   </head>
   <body>
+    <div class="wrapper-demo">
+      <div id="dd" class="wrapper-dropdown-2" tabindex="1">Choose a candadite
+          <ul class="dropdown">
+              <ul class="dropdown">
+                  <li class="dropdown-list" onclick="loadCandaditePaths('OMalley')"><a href="#">Martin O'Malley</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Sanders')"><a href="#">Bernie Sanders</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Clinton')"><a href="#">Hillary Clinton</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Bush')"><a href="#">Jeb Bush</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Carson')"><a href="#">Ben Carson</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Christie')"><a href="#">Chris Christie</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Cruz')"><a href="#">Ted Cruz</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Fiorina')"><a href="#">Carly Fiorina</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Gilmore')"><a href="#">Jim Gilmore</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Graham')"><a href="#">Lindsey Graham</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Huckabee')"><a href="#">Mike Huckabee</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Kasich')"><a href="#">John Kasich</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Pataki')"><a href="#">George Pataki</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Paul')"><a href="#">Rand Paul</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Rubio')"><a href="#">Marco Rubio</a></li>
+                  <li class="dropdown-list" onclick="loadCandaditePaths('Trump')"><a href="#">Donald Trump</a></li>
+              </ul>
+          </ul>
+      </div>
+    </div>
+    <div style="display: none; padding: 330px;" id="hidden"><br></div><br>
     <div id="map"></div>
     <script type="text/javascript" src="js/map.js"></script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe-8UE_VquKxdo4pBXltgm5ExXNC6KIIs&callback=initMap">
     </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        var counter = 0;
+        function DropDown(el) {
+            this.dd = el;
+            this.initEvents();
+        }
+        DropDown.prototype = {
+            initEvents : function() {
+                var obj = this;
+
+                obj.dd.on('click', function(event){
+                    if (counter == 0) {
+                        $('#hidden').css("display", "block");
+                        $('#hidden').css("visibility", "hidden");
+                        counter = 1;
+                    }
+                    else {
+                        $('#hidden').css("display", "none");
+                        counter = 0;
+                    }
+                    $(this).toggleClass('active');
+                    event.stopPropagation();
+                });
+            }
+        }
+
+        $(function() {
+            var dd = new DropDown( $('#dd') );
+
+            $(document).click(function() {
+                // all dropdowns
+                $('#hidden').css("display", "none");
+                counter = 0;
+                $('.wrapper-dropdown-2').removeClass('active');
+            });
+        });
+    </script>
+
   </body>
 </html>

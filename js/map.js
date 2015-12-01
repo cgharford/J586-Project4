@@ -1,6 +1,11 @@
 var map;
 var marker;
-function initMap() {
+
+function loadCandaditePaths(name) {
+    initMap(name);
+}
+
+function initMap(name) {
     var myLatLng = {lat: 38.68551, lng: -97.910156};
     map = new google.maps.Map(document.getElementById('map'), {
     center: myLatLng,
@@ -212,7 +217,60 @@ function initMap() {
       {lat: 34.85261759999999, lng: -82.39401040000001}
   ]
 
-    addBobbyJindalMarkers();
+  if (name != null) {
+    switch (name) {
+        case 'OMalley':
+            addMartinOMalleyMarkers();
+            break;
+        case 'Sanders':
+            addBernieSandersMarkers();
+            break;
+        case 'Clinton':
+            addHillaryClintonMarkers();
+            break;
+        case 'Bush':
+            addJebBushMarkers();
+            break;
+        case 'Carson':
+            addBenCarsonMarkers();
+            break;
+        case 'Christie':
+            addChrisChristieMarkers();
+            break;
+        case 'Cruz':
+            addTedCruzMarkers();
+            break;
+        case 'Fiorina':
+            addCarlyFiorinaMarkers();
+            break;
+
+        case 'Gilmore':
+            addJimGilmoreMarkers();
+            break;
+        case 'Graham':
+            addLindseyGrahamMarkers();
+            break;
+        case 'Huckabee':
+            addMikeHuckabeeMarkers();
+            break;
+        case 'Kasich':
+            addJohnKasichMarkers();
+            break;
+        case 'Pataki':
+            addGeorgePatakiMarkers();
+            break;
+        case 'Paul':
+            addRandPaulMarkers();
+            break;
+        case 'Rubio':
+            addMarcoRubioMarkers();
+            break;
+        case 'Trump':
+            addDonaldTrumpMarkers();
+            break;
+        default:
+    }
+  }
 
 
     function addBenCarsonMarkers() {
@@ -1375,6 +1433,57 @@ function initMap() {
         });
         TedCruzMarker5.addListener('click', function() {
             infowindow2.open(map, TedCruzMarker5);
+        });
+    }
+
+    function addMarcoRubioMarkers() {
+        var MarcoRubioMarker1 = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: MarcoRubioPath[0],
+            map: map
+        });
+        var MarcoRubioMarker2 = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: MarcoRubioPath[1],
+            map: map
+        });
+        var MarcoRubioMarker3 = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: MarcoRubioPath[2],
+            map: map
+        });
+        var MarcoRubioMarker4 = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: MarcoRubioPath[3],
+            map: map
+        });
+        var MarcoRubioMarker5 = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: MarcoRubioPath[4],
+            map: map
+        });
+        var MarcoRubioMarker6 = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            position: MarcoRubioPath[5],
+            map: map
+        });
+        MarcoRubioMarker1.addListener('click', function() {
+            infowindow.open(map, MarcoRubioMarker1);
+        });
+        MarcoRubioMarker2.addListener('click', function() {
+            infowindow2.open(map, MarcoRubioMarker2);
+        });
+        MarcoRubioMarker3.addListener('click', function() {
+            infowindow3.open(map, MarcoRubioMarker3);
+        });
+        MarcoRubioMarker4.addListener('click', function() {
+            infowindow.open(map, MarcoRubioMarker4);
+        });
+        MarcoRubioMarker5.addListener('click', function() {
+            infowindow2.open(map, MarcoRubioMarker5);
+        });
+        MarcoRubioMarker6.addListener('click', function() {
+            infowindow3.open(map, MarcoRubioMarker6);
         });
     }
 }
