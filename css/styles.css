@@ -224,6 +224,11 @@ input:focus {
     border-radius: .25em;
 }
 
+#map-size {
+    width: 100%;
+    height: 600px;
+}
+
 #php-size {
     width: 100%;
     height: 600px;
